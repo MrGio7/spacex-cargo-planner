@@ -1,10 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { NavBar, Search } from "./components";
+import { NavBar, Search, Company } from "./components";
 
 function App() {
   const [shipData, setShipData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+
+  // Setting Search Value to state
+  const setSearchValue = val => {
+    setSearch(val)
+  }
 
   // Get Shipment data, sort and save in shipData state, then set loading state to false;
   useEffect(() => {
@@ -29,9 +35,10 @@ function App() {
     <div className="loading">Loading...</div>
   ) : (
     <>
-      <NavBar shipData={shipData} />
+      <NavBar shipData={shipData} searchValue={search}/>
       <div className="main">
-        <Search />
+        <Search setSearchValue={setSearchValue} />
+        <Company  />
       </div>
     </>
   );

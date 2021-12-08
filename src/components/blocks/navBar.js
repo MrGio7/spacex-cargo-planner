@@ -2,20 +2,28 @@ import React from "react";
 import logo from "../../assets/logo.svg";
 
 const NavBar = (props) => {
+  const shipmentList = (
+    <ul>
+      {props.shipData.filter((val) => {
+        if(props.searchValue === "") {
+          return val
+        } else if(val.name.toLowerCase().includes(props.searchValue.toLowerCase())) {
+          return val
+        }
+      }).map((v, i) => {
+        return <li key={i} value={v.name}>{v.name}</li>;
+      })}
+    </ul>
+  );
+
   return (
     <div className="navBar">
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
       <div className="navigation">
-          <h4>Shipment List</h4>
-          <ul>
-            <li>Select</li>
-            <li>Amazon</li>
-            <li>American Express</li>
-            <li>Airbnb</li>
-            <li>Apple</li>
-          </ul>
+        <h4>Shipment List</h4>
+        {shipmentList}
       </div>
       <div className="burger">
         <div className="bar1"></div>
