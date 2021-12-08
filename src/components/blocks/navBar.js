@@ -1,13 +1,13 @@
 import React from "react";
 import logo from "../../assets/logo.svg";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
-    <div class="navBar">
-      <div class="logo">
+    <div className="navBar">
+      <div className="logo">
         <img src={logo} alt="logo" />
       </div>
-      <div class="navigation">
+      <div className="navigation">
           <h4>Shipment List</h4>
           <ul>
             <li>Select</li>
@@ -17,10 +17,10 @@ const NavBar = () => {
             <li>Apple</li>
           </ul>
       </div>
-      <div class="burger">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
+      <div className="burger">
+        <div className="bar1"></div>
+        <div className="bar2"></div>
+        <div className="bar3"></div>
       </div>
     </div>
   );
