@@ -1,8 +1,14 @@
+import {NavBar, Search} from "./components";
+
 function App() {
   return (
-    <div className="App">
-      React App
-    </div>
+    <>
+      <NavBar/>
+      <div className="main">
+        <Search/>
+        
+      </div>
+    </>
   );
 }
 
