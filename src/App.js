@@ -6,8 +6,14 @@ function App() {
   const [shipData, setShipData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
+  const [selectedCompany, setSelectedCompany] = useState("");
 
-  // Setting Search Value to state
+
+  // Event Handlers
+  const setSelectedCompanyValue = val => {
+    setSelectedCompany(val)
+  }
+
   const setSearchValue = val => {
     setSearch(val)
   }
@@ -35,10 +41,10 @@ function App() {
     <div className="loading">Loading...</div>
   ) : (
     <>
-      <NavBar shipData={shipData} searchValue={search}/>
+      <NavBar shipData={shipData} searchValue={search} setSelectedCompanyValue={setSelectedCompanyValue}/>
       <div className="main">
         <Search setSearchValue={setSearchValue} />
-        <Company  />
+        <Company shipData={shipData} selectedCompany={selectedCompany} />
       </div>
     </>
   );

@@ -11,7 +11,7 @@ const NavBar = (props) => {
           return val
         }
       }).map((v, i) => {
-        return <li key={i} value={v.name}>{v.name}</li>;
+        return <li key={i} className={v.id} onClick={ev => props.setSelectedCompanyValue(ev.target.className)}>{v.name}</li>;
       })}
     </ul>
   );
