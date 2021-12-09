@@ -31,8 +31,9 @@ const NavBar = (props) => {
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
+      
+      <h4>Shipment List</h4>
       <div className="navigation">
-        <h4>Shipment List</h4>
         {shipmentList}
       </div>
       <div className="burger">

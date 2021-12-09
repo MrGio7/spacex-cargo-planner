@@ -8,11 +8,14 @@ body{
 
     #root{
         width: 100%;
+        height: 100vh;
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
+        padding-top: 40px;
 
         .main{
-            width: calc((1036/1440)*100%);
+            width: 72%;
             display: flex;
             flex-direction: column;
         }

@@ -1,13 +1,68 @@
 .company{
     width: 100%;
+    margin-top: 40px;
 
     h1{
-        font-size: 2rem;
-        color: white;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 6.4rem;
+        line-height: 116%;
+
+        color: #FFFFFF;
+
+    }
+
+    h2{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.6rem;
+        line-height: 150%;
+        color: #979797;
+    }
+
+    h3{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.6rem;
+        line-height: 150%;
+        text-transform: uppercase;
+        color: #979797;
+    }
+
+    input{
+        width: 35%;
+        height: 50px;
+        padding: 0.26% 2%;
+
+        background: #FFFFFF;
+        border-radius: 10px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.6rem;
+        line-height: 150%;
+        color: #000000;
+    }
+
+    h4{
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 3.4rem;
+        line-height: 129%;
+        color: #979797;
     }
 
     h5{
-        font-size: 2rem;
-        color: white;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 5.6rem;
+        line-height: 118%;
+        color: #FFFFFF;
     }
 }
