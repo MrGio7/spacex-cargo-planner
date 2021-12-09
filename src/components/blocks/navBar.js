@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/logo.svg";
 
 const NavBar = (props) => {
+  const [selected, setSelected] = useState('');
+
   const shipmentList = (
     <ul>
       {props.shipData
@@ -18,7 +20,13 @@ const NavBar = (props) => {
         })
         .map((v, i) => {
           return (
-            <li key={i} onClick={() => props.setSelectedCompanyValue(v)}>
+            <li
+              key={i}
+              className={selected === v.id ? "selected" : null}
+              onClick={() => {
+                setSelected(v.id)
+                props.setSelectedCompanyValue(v)}}
+            >
               {v.name}
             </li>
           );
@@ -31,11 +39,9 @@ const NavBar = (props) => {
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
-      
+
       <h4>Shipment List</h4>
-      <div className="navigation">
-        {shipmentList}
-      </div>
+      <div className="navigation">{shipmentList}</div>
       <div className="burger">
         <div className="bar1"></div>
         <div className="bar2"></div>
