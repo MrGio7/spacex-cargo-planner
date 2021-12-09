@@ -5,18 +5,17 @@ import { NavBar, Search, Company } from "./components";
 function App() {
   const [shipData, setShipData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState('');
-  const [selectedCompany, setSelectedCompany] = useState("");
-
+  const [search, setSearch] = useState("");
+  const [selectedCompany, setSelectedCompany] = useState(null);
 
   // Event Handlers
-  const setSelectedCompanyValue = val => {
-    setSelectedCompany(val)
-  }
+  const setSelectedCompanyValue = (val) => {
+    setSelectedCompany(val);
+  };
 
-  const setSearchValue = val => {
-    setSearch(val)
-  }
+  const setSearchValue = (val) => {
+    setSearch(val);
+  };
 
   // Get Shipment data, sort and save in shipData state, then set loading state to false;
   useEffect(() => {
@@ -41,7 +40,11 @@ function App() {
     <div className="loading">Loading...</div>
   ) : (
     <>
-      <NavBar shipData={shipData} searchValue={search} setSelectedCompanyValue={setSelectedCompanyValue}/>
+      <NavBar
+        shipData={shipData}
+        searchValue={search}
+        setSelectedCompanyValue={setSelectedCompanyValue}
+      />
       <div className="main">
         <Search setSearchValue={setSearchValue} />
         <Company shipData={shipData} selectedCompany={selectedCompany} />

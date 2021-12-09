@@ -4,15 +4,25 @@ import logo from "../../assets/logo.svg";
 const NavBar = (props) => {
   const shipmentList = (
     <ul>
-      {props.shipData.filter((val) => {
-        if(props.searchValue === "") {
-          return val
-        } else if(val.name.toLowerCase().includes(props.searchValue.toLowerCase())) {
-          return val
-        }
-      }).map((v, i) => {
-        return <li key={i} className={v.id} onClick={ev => props.setSelectedCompanyValue(ev.target.className)}>{v.name}</li>;
-      })}
+      {props.shipData
+        .filter((val) => {
+          if (props.searchValue === "") {
+            return val;
+          } else if (
+            val.name.toLowerCase().includes(props.searchValue.toLowerCase())
+          ) {
+            return val;
+          } else {
+            return null;
+          }
+        })
+        .map((v, i) => {
+          return (
+            <li key={i} onClick={() => props.setSelectedCompanyValue(v)}>
+              {v.name}
+            </li>
+          );
+        })}
     </ul>
   );
 
