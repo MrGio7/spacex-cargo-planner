@@ -3,7 +3,7 @@ import zoom from "../../assets/zoom.svg";
 
 const Search = (props) => {
   return (
-    <div className="search">
+    <div className={props.navOpened ? "search opened" : "search"}>
       <input
         placeholder="Search"
         type="text"

@@ -1,3 +1,5 @@
+@use "../helpers/variables" as *;
+
 * {
 	box-sizing: border-box;
 }
@@ -20,4 +22,19 @@ body{
             flex-direction: column;
         }
     }
+}
+
+@media (max-width:$mobileView) {
+    body{
+
+    #root{
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 0;
+
+        .main{
+            width: 100%;
+        }
+    }
+}
 }

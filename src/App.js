@@ -7,6 +7,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [selectedCompany, setSelectedCompany] = useState(null);
+  const [navOpened, setNavOpened] = useState(false);
 
   // Event Handlers
   const setSelectedCompanyValue = (val) => {
@@ -15,6 +16,10 @@ function App() {
 
   const setSearchValue = (val) => {
     setSearch(val);
+  };
+
+  const setNavOpenedState = (val) => {
+    setNavOpened(val);
   };
 
   // Get Shipment data, sort and save in shipData state, then set loading state to false;
@@ -44,9 +49,11 @@ function App() {
         shipData={shipData}
         searchValue={search}
         setSelectedCompanyValue={setSelectedCompanyValue}
+        navOpened={navOpened}
+        setNavOpenedState={setNavOpenedState}
       />
       <div className="main">
-        <Search setSearchValue={setSearchValue} />
+        <Search setSearchValue={setSearchValue} navOpened={navOpened} />
         <Company shipData={shipData} selectedCompany={selectedCompany} />
       </div>
     </>
