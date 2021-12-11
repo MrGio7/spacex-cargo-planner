@@ -24,26 +24,11 @@
 
 @media (max-width: $mobileView) {
     .search{
-        width: 100%;
         display: none;
         justify-content: center;
     
         input{
             width: 80%;
-            height: 50px;
-            border-radius: 10px;
-            background-color: #FFFFFF;
-            background-repeat: no-repeat;
-            background-position-x: 5px;
-            background-position-y: center;
-            background-size: 20px;
-            padding-left: 30px;
-    
-            font-style: normal;
-            font-weight: normal;
-            font-size: 1.6rem;
-            line-height: 150%;
-            color: #000000;
         }
 
         &.opened {

@@ -55,7 +55,6 @@
     .navBar{
         width: 100%;
         height: auto;
-        display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 20px;
@@ -69,20 +68,7 @@
             }
         }
     
-        h4{
-            margin-top: 40px;
-            font-family: 'Lato', sans-serif;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 2rem;
-            text-transform: uppercase;
-            color: #979797;
-            line-height: 190%;
-            display: none;
-        }
-    
         .navigation{
-            overflow-y: scroll;
             position: absolute;
             background-color: #1B1D22;
             z-index: 1;
@@ -91,23 +77,6 @@
             width: 0;
             height: 0;
             padding:0 5%;
-            
-            
-            ul{
-                li{
-                    font-style: normal;
-                    font-weight: normal;
-                    font-size: 1.6rem;
-                    line-height: 150%;
-                    color: #FFFFFF;
-                    
-    
-                    &.selected{
-                        background: linear-gradient(90deg, rgba(45, 48, 56, 0) 22.92%, #2D3038 100%);
-                        border-radius: 10px;
-                    }
-                }
-            }
 
             &.opened{
                 width: 100%;
