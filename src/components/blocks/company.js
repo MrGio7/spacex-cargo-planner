@@ -16,7 +16,7 @@ const Company = (props) => {
   // Cargo bay calculator
   if (company !== null) {
     let boxes = box.split(",").map(Number).sort().reverse();
-    boxes.reduce((prVal, curVal, curIdx, arr) => {
+    boxes.reduce((prVal, curVal) => {
       if(box.trim().length === 0) {
         message = "Please provide new data"
       }
