@@ -9,19 +9,6 @@ function App() {
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [navOpened, setNavOpened] = useState(false);
 
-  // Event Handlers
-  const setSelectedCompanyValue = (val) => {
-    setSelectedCompany(val);
-  };
-
-  const setSearchValue = (val) => {
-    setSearch(val);
-  };
-
-  const setNavOpenedState = (val) => {
-    setNavOpened(val);
-  };
-
   // Get Shipment data, sort and save in shipData state, then set loading state to false;
   useEffect(() => {
     axios
@@ -48,13 +35,13 @@ function App() {
       <NavBar
         shipData={shipData}
         searchValue={search}
-        setSelectedCompanyValue={setSelectedCompanyValue}
+        setSelectedCompany={setSelectedCompany}
         navOpened={navOpened}
-        setNavOpenedState={setNavOpenedState}
+        setNavOpened={setNavOpened}
       />
       <div className="main">
-        <Search setSearchValue={setSearchValue} navOpened={navOpened} />
-        <Company shipData={shipData} selectedCompany={selectedCompany} />
+        <Search setSearch={setSearch} navOpened={navOpened} />
+        <Company company={selectedCompany} />
       </div>
     </>
   );

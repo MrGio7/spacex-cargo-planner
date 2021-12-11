@@ -3,15 +3,16 @@ import logo from "../../assets/logo.svg";
 
 const NavBar = (props) => {
   const [selected, setSelected] = useState("");
+  const {shipData, searchValue, setSelectedCompany, navOpened, setNavOpened} = props;
 
   const shipmentList = (
     <ul>
-      {props.shipData
+      {shipData
         .filter((val) => {
-          if (props.searchValue === "") {
+          if (searchValue === "") {
             return val;
           } else if (
-            val.name.toLowerCase().includes(props.searchValue.toLowerCase())
+            val.name.toLowerCase().includes(searchValue.toLowerCase())
           ) {
             return val;
           } else {
@@ -25,8 +26,8 @@ const NavBar = (props) => {
               className={selected === v.id ? "selected" : null}
               onClick={() => {
                 setSelected(v.id);
-                props.setSelectedCompanyValue(v);
-                props.setNavOpenedState(!props.navOpened)
+                setSelectedCompany(v);
+                setNavOpened(!navOpened)
               }}
             >
               {v.name}
@@ -42,10 +43,10 @@ const NavBar = (props) => {
         <img src={logo} alt="logo" />
       </div>
       <h4>Shipment List</h4>
-      <div className={props.navOpened ? "navigation opened" : "navigation"}>{shipmentList}</div>
+      <div className={navOpened ? "navigation opened" : "navigation"}>{shipmentList}</div>
       <div
-        className={props.navOpened ? "burger opened" : "burger"}
-        onClick={() => props.setNavOpenedState(!props.navOpened)}
+        className={navOpened ? "burger opened" : "burger"}
+        onClick={() => setNavOpened(!navOpened)}
       >
         <div className="bar1"></div>
         <div className="bar2"></div>

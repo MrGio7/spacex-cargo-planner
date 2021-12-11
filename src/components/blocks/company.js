@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 
 const Company = (props) => {
   const [box, setBox] = useState("");
+  const {company} = props;
   let count = 0;
   let message = "";
 
   // assign value to box on every company update
   useEffect(() => {
-    if (props.selectedCompany !== null) {
-      setBox(props.selectedCompany.boxes);
+    if (company !== null) {
+      setBox(company.boxes);
     }
-  }, [props.selectedCompany]);
+  }, [company]);
 
   // Cargo bay calculator
-  if (props.selectedCompany !== null) {
+  if (company !== null) {
     let boxes = box.split(",").map(Number);
 
     for (let i = 0; i < boxes.length; i++) {
@@ -52,10 +53,10 @@ const Company = (props) => {
   }
 
 
-  return props.selectedCompany !== null ? (
+  return company !== null ? (
     <div className="company">
-      <h1>{props.selectedCompany.name}</h1>
-      <h2>{props.selectedCompany.email}</h2>
+      <h1>{company.name}</h1>
+      <h2>{company.email}</h2>
       <h3>CARGO BOXES</h3>
       <input
         type="text"
