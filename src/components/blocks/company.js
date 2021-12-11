@@ -3,55 +3,39 @@ import React, { useEffect, useState } from "react";
 const Company = (props) => {
   const [box, setBox] = useState("");
   const {company} = props;
-  let count = 0;
+  let count = 1;
   let message = "";
 
   // assign value to box on every company update
   useEffect(() => {
     if (company !== null) {
-      setBox(company.boxes);
+      setBox(company.boxes !== null ? company.boxes : "");
     }
   }, [company]);
 
   // Cargo bay calculator
   if (company !== null) {
-    let boxes = box.split(",").map(Number);
-
-    for (let i = 0; i < boxes.length; i++) {
-      if (isNaN(boxes[i])) {
+    let boxes = box.split(",").map(Number).sort().reverse();
+    boxes.reduce((prVal, curVal, curIdx, arr) => {
+      if(box.trim().length === 0) {
+        message = "Please provide new data"
+      }
+      if (isNaN(curVal)) {
         message = "Data is incorrect!";
-        break;
       }
-      if (boxes[i] > 10) {
+      if (curVal > 10) {
         message = "Each Starship cargo bay can hold up to 10 units.";
-        break;
       }
-    }
 
-    boxes = boxes.sort().reverse();
-
-    while (boxes.length > 0) {
-      let tmpSum = parseFloat(boxes[0]);
-      if (isNaN(tmpSum)) {
-        count = NaN;
-        break;
-      }
-      let isDel = false;
-      for (let i = 1; i < boxes.length; i++) {
-        if (tmpSum + parseFloat(boxes[i]) <= 10) {
-          tmpSum += parseFloat(boxes[i]);
+      if (parseFloat(prVal) + parseFloat(curVal) > 10) { 
+          prVal = parseFloat(curVal);
+          count++;
         } else {
-          isDel = true;
-          boxes.splice(0, i);
-          break;
+          prVal += parseFloat(curVal)
         }
-      }
-      count++;
-      if (!isDel && tmpSum <= 10) break;
-      if (count > 20) break;
-    }
+      return prVal;
+    }, 0);
   }
-
 
   return company !== null ? (
     <div className="company">
