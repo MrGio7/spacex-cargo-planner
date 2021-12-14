@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        "https://bitbucket.org/hpstore/spacex-cargo-planner/raw/204125d74487b1423bbf0453f4dcb53a2161353b/shipments.json"
+        "https://bitbucket.org/hpstore/spacex-cargo-planner/raw/204125d74487b1423bbf0453f4dcb53a2161353b/shipment.json"
       )
       .then((res) => {
         setShipData(
@@ -28,6 +28,9 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+        setShipData([]);
+        setLoading(false);
+        alert(err);
       });
   }, []);
 
@@ -43,7 +46,7 @@ function App() {
       />
       <div className="main">
         <Search setSearch={searchInput.onChange} navOpened={navOpened} />
-        <Outlet />
+        <Outlet context={[shipData]} />
       </div>
     </>
   );

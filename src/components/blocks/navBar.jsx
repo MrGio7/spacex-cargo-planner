@@ -14,7 +14,7 @@ const NavBar = ({ shipData, searchValue, navOpened, setNavOpened }) => {
           to={`${v.id}`}
           state={{ company: { ...v } }}
           key={v.id}
-          className={path === `/${v.id}` ? "selected" : null}
+          className={path === `/spacex-cargo-planner/${v.id}` ? "selected" : null}
           onClick={() => setNavOpened(false)}
         >
           {v.name}

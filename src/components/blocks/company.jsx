@@ -1,14 +1,23 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useOutletContext, useParams } from "react-router-dom";
 import useInput from "../../hooks/useInput";
 
 const Company = () => {
   const location = useLocation();
-  const { company } = location.state;
+  let company = null;
+  
+  const [shipData] = useOutletContext();
+  const params = useParams();
+
+  if (location.state !== null && location.state.company !== null) {
+    company = location.state.company
+  } else {
+    company = shipData.find(val => val.id === params.companyId)
+  }
 
   const cargoInput = useInput("");
   const setCargoInput = cargoInput.setValue;
-
+  
   let count = 1;
   let message = "";
 
