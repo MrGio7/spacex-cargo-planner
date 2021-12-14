@@ -1,6 +1,38 @@
-# Getting Started with Create React App
+## SpaceX Cargo Planner
+SpaceX is experiencing an increasing demand of shipments to Mars and has commissioned an application to automate the needed cargo space calculations.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+High level overview
+The application loading existing set of shipments over the network.
+
+As a first feature it calculates the required number of cargo bays for each shipment.
+
+### Functionality
+When the user loads the application it first checks for locally saved shipments and loads them. In case there are none it displays a message asking to load a set over the network.
+
+Typing in a search box filters the existing list of loaded shipments by company name.
+
+Clicking a specific shipment displays the shipment details.
+
+Each shipment details view have an unique URL.
+
+Changing the “Cargo boxes” field recalculates the needed number of cargo bays.
+
+### Calculating the needed number of cargo bays
+Each shipment specifies a comma separated string of cargo box units where each unit is represented by a number.
+
+{
+  "id": "d3ff0c68892",
+  "name": "Amazon.com",
+  "email": "contact@amazon.com",
+  "boxes": "6.8,7.9,3"
+}
+The following shipment consists of 3 cargo boxes with the following units 6.8, 7.9 and 3.
+
+Each Starship cargo bay can hold up to 10 units.
+
+The example shipment would require 2 cargo bays.
+
+Another shipment 6.2,5.9,4,6.9,4.4,1.7,9.5 would require 4 cargo bays.
 
 ## Available Scripts
 
@@ -9,15 +41,10 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3000/spacex-cargo-planner](http://localhost:3000/spacex-cargo-planner) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -26,45 +53,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
