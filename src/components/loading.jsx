@@ -7,12 +7,10 @@ export default function Loading() {
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
         role="img"
-        id="footer-sample-full"
         width="20vw"
         height="20vw"
         preserveAspectRatio="xMidYMid meet"
         viewBox="0 0 24 24"
-        class="iconify iconify--eos-icons"
         style={{
           color:'#FFFFFF',
           position: 'absolute',
