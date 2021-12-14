@@ -2,6 +2,7 @@
 
 .navBar{
     width: 18.75%;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     
@@ -50,6 +51,7 @@
 @media (max-width: $mobileView) {
     .navBar{
         width: 100%;
+        margin-top: 0;
         height: auto;
         flex-direction: row;
         justify-content: space-between;

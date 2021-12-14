@@ -9,17 +9,18 @@ const Company = () => {
   const [shipData] = useOutletContext();
   const params = useParams();
 
-  if (location.state !== null && location.state.company !== null) {
-    company = location.state.company
-  } else {
-    company = shipData.find(val => val.id === params.companyId)
-  }
-
   const cargoInput = useInput("");
   const setCargoInput = cargoInput.setValue;
   
   let count = 1;
   let message = "";
+
+  // handles manual url input, if we dont get data from Link, than find it through list
+  if (location.state !== null && location.state.company !== null) {
+    company = location.state.company
+  } else {
+    company = shipData.find(val => val.id === params.companyId)
+  }
 
   // assign value to box on every company update
   useEffect(() => {

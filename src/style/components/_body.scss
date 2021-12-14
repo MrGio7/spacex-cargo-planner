@@ -16,10 +16,10 @@ body{
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        padding-top: 40px;
 
         .main{
             width: 72%;
+            margin-top: 40px;
             height: max-content;
             display: flex;
             flex-direction: column;
@@ -33,10 +33,10 @@ body{
     #root{
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 0;
 
         .main{
             width: 100%;
+            margin-top: 0;
         }
     }
 }

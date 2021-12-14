@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { NavBar, Search } from "./components";
+import { Loading, NavBar, Search } from "./components";
 import useInput from "./hooks/useInput";
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   return loading ? (
-    <div className="loading">Loading...</div>
+    <Loading/>
   ) : (
     <>
       <NavBar
