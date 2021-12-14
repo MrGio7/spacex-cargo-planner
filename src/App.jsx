@@ -1,13 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { NavBar, Search, Company } from "./components";
+import { Outlet } from "react-router-dom";
+import { NavBar, Search } from "./components";
+import useInput from "./hooks/useInput";
 
 function App() {
   const [shipData, setShipData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [selectedCompany, setSelectedCompany] = useState(null);
   const [navOpened, setNavOpened] = useState(false);
+
+  const searchInput = useInput('');
+
 
   // Get Shipment data, sort and save in shipData state, then set loading state to false;
   useEffect(() => {
@@ -34,14 +37,13 @@ function App() {
     <>
       <NavBar
         shipData={shipData}
-        searchValue={search}
-        setSelectedCompany={setSelectedCompany}
+        searchValue={searchInput.value}
         navOpened={navOpened}
         setNavOpened={setNavOpened}
       />
       <div className="main">
-        <Search setSearch={setSearch} navOpened={navOpened} />
-        <Company company={selectedCompany} />
+        <Search setSearch={searchInput.onChange} navOpened={navOpened} />
+        <Outlet />
       </div>
     </>
   );

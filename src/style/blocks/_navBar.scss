@@ -23,11 +23,9 @@
         line-height: 190%;
     }
 
-    .navigation{
+    nav{
         overflow-y: auto;
-        
-        ul{
-            li{
+            a{
                 margin: 7px 0px;
                 font-size: 1.6rem;
                 line-height: 150%; 
@@ -40,7 +38,6 @@
                 }
             }
         }
-    }
 
     .burger{
         display: none;
