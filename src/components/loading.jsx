@@ -1,9 +1,6 @@
 import React from "react";
 
 export default function Loading() {
-  let keyframes = `
-        @
-    `;
   return (
     <div className="loading">
       <svg
