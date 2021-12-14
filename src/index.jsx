@@ -7,9 +7,9 @@ import { Company } from "./components";
 import "./style/index.scss";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename='/spacex-cargo-planner'>
     <Routes>
-      <Route path="/spacex-cargo-planner" element={<App />}>
+      <Route path="/" element={<App />}>
         <Route
           index
           element={
