@@ -9,7 +9,7 @@ import "./style/index.scss";
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="spacex-cargo-planner/" element={<App />}>
+      <Route path="/spacex-cargo-planner" element={<App />}>
         <Route
           index
           element={
